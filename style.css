@@ -1,0 +1,330 @@
+/* GLOBAL RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.skills .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.about-points {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.about-points li {
+  margin: 12px 0;
+  font-size: 16px;
+  line-height: 1.6;
+  position: relative;
+  padding-left: 10px;
+}
+
+.about {
+  display: flex;
+  justify-content: center;
+  padding: 100px 20px;
+}
+
+.about-card {
+  max-width: 900px;
+  text-align: center;
+}
+
+/* BODY */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top, #0a0a0a, #050505);
+  color: white;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* CANVAS */
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+/* NAV */
+.nav {
+  position: fixed;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 3px;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  text-align: center;
+  z-index: 5;
+  position: relative;
+}
+
+/* 🔥 DARK OVERLAY (KEY FIX) */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+}
+
+/* 🔥 GLASS CARD (MAIN FIX) */
+.glass-card {
+  position: relative;
+  z-index: 2;
+
+  max-width: 900px;
+  padding: 70px 50px;
+  border-radius: 25px;
+
+  background: rgba(0, 0, 0, 0.6); /* darker for contrast */
+
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow: 
+    0 0 60px rgba(0, 0, 0, 0.8),
+    0 0 40px rgba(255, 0, 200, 0.08);
+}
+
+/* TEXT FIX */
+.hero h1 {
+  font-size: clamp(55px, 7vw, 95px);
+  font-weight: 700;
+  line-height: 1.1;
+
+  text-shadow: 0 5px 30px rgba(0,0,0,0.9);
+}
+
+.hero span {
+  background: linear-gradient(90deg, #00f2ff, #ff00c8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  margin-top: 25px;
+  font-size: clamp(18px, 2.2vw, 22px);
+  color: #eee;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+
+  text-shadow: 0 2px 15px rgba(0,0,0,0.8);
+}
+
+/* SECTION */
+section {
+  padding: 120px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 5;
+}
+
+h2 {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.section-subtitle {
+  font-size: 24px;
+  color: #ffffff;
+  max-width: 650px;
+  margin: 0 auto 40px;
+}
+
+.about-text {
+  max-width: 1200px;
+  margin: 20px auto 0;
+  color: #ffffff;
+  font-size: 24px;
+}
+
+/* CARDS */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 300px;
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: 0.4s;
+}
+
+.card:hover {
+  transform: translateY(-12px) scale(1.05);
+  border-color: rgba(255,255,255,0.2);
+}
+
+/* LIST */
+.card ul {
+  text-align: left;
+  padding-left: 0;
+}
+
+.card li {
+  list-style: none;
+  margin-bottom: 12px;
+  padding-left: 22px;
+  position: relative;
+  color: #ccc;
+  font-size: 15px;
+}
+
+.card li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  background: linear-gradient(90deg, #00f2ff, #ff00c8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card li:hover {
+  color: white;
+  transform: translateX(5px);
+}
+
+/* PROJECT TEXT */
+.card p {
+  color: #aaa;
+  font-size: 15px;
+}
+
+/* CTA */
+.cta-section h2 {
+  font-size: clamp(32px, 4vw, 44px);
+}
+
+.cta-section p {
+  color: #aaa;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+
+/* CONTACT CLEAN */
+.contact {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.contact-card {
+  max-width: 500px;
+  margin: auto;
+  padding: 40px;
+}
+
+.contact-info p {
+  font-size: 18px;
+  margin: 15px 0;
+}
+
+.contact-info a {
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #666;
+  font-size: 14px;
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+
+  .contact {
+    padding: 60px 15px;
+  }
+
+  .contact-card {
+    padding: 25px;
+    width: 100%;
+  }
+
+  .contact-info p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .contact-info a {
+    display: inline-block;
+    margin-top: 5px;
+    word-break: break-word;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  .section-subtitle {
+    font-size: 14px;
+  }
+
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav {
+    padding: 15px 20px;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  section {
+    padding: 80px 20px;
+  }
+
+  .glass-card {
+    padding: 40px 25px;
+  }
+
+}
