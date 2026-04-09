@@ -105,24 +105,38 @@ window.addEventListener("scroll", () => {
   particles.position.y = -scrollY * 0.002;
 });
 
+// GSAP SCROLL ANIMATIONS
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.utils.toArray('.card').forEach(card => {
+  gsap.from(card, {
+    scrollTrigger: {
+      trigger: card,
+      start: "top 85%",
+      toggleActions: "play none none reverse"
+    },
+    y: 50,
+    opacity: 0,
+    duration: 0.8,
+    ease: "power3.out"
+  });
+});
+
 // MAGNETIC BUTTON
 const button = document.querySelector(".btn");
 
-document.addEventListener("mousemove", (e) => {
-  if (!button) return;
+if (button) {
+  button.addEventListener("mousemove", (e) => {
+    const rect = button.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    button.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+  });
 
-  const rect = button.getBoundingClientRect();
-
-  const x = e.clientX - rect.left - rect.width / 2;
-  const y = e.clientY - rect.top - rect.height / 2;
-
-  button.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
-});
-
-document.addEventListener("mouseleave", () => {
-  if (!button) return;
-  button.style.transform = `translate(0,0)`;
-});
+  button.addEventListener("mouseleave", () => {
+    button.style.transform = `translate(0px, 0px)`;
+  });
+}
 
 // RESIZE
 window.addEventListener("resize", () => {
