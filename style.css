@@ -118,12 +118,9 @@ canvas {
 .hero {
   min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 120px 20px 20px 20px; /* Cushion to prevent nav overlap */
-  text-align: center;
-  z-index: 5;
+  padding: 160px 20px 60px; /* Big top padding ensures it ALWAYS clears nav */
   position: relative;
+  z-index: 5;
   box-sizing: border-box;
 }
 
@@ -142,6 +139,9 @@ canvas {
   z-index: 2;
 
   max-width: 900px;
+  width: 100%;
+  margin: auto; /* Safely centers the item in flex container without top truncation */
+  text-align: center;
   padding: 70px 50px;
   border-radius: 25px;
 
@@ -161,7 +161,9 @@ canvas {
 .hero h1 {
   font-size: clamp(55px, 7vw, 95px);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.25;
+  padding-top: 10px;
+  padding-bottom: 15px;
 
   text-shadow: 0 5px 30px rgba(0,0,0,0.9);
 }
